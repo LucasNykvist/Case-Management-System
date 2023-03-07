@@ -1,0 +1,15 @@
+C:\Users\lukep\Desktop\CMS\CMS\bin\Debug\net7.0\CMS.exe
+C:\Users\lukep\Desktop\CMS\CMS\bin\Debug\net7.0\CMS.deps.json
+C:\Users\lukep\Desktop\CMS\CMS\bin\Debug\net7.0\CMS.runtimeconfig.json
+C:\Users\lukep\Desktop\CMS\CMS\bin\Debug\net7.0\CMS.dll
+C:\Users\lukep\Desktop\CMS\CMS\bin\Debug\net7.0\CMS.pdb
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.csproj.AssemblyReference.cache
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.AssemblyInfoInputs.cache
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.AssemblyInfo.cs
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.csproj.CoreCompileInputs.cache
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.dll
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\refint\CMS.dll
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.pdb
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\CMS.genruntimeconfig.cache
+C:\Users\lukep\Desktop\CMS\CMS\obj\Debug\net7.0\ref\CMS.dll
