@@ -1,5 +1,7 @@
 ﻿using CMS.Services;
 
+CaseService caseService= new CaseService();
+
 bool isRunning = true;
 
 while (isRunning)
@@ -14,7 +16,7 @@ while (isRunning)
         {
 
             case 1:
-
+                caseService.AddCase();
                 break;
 
 
