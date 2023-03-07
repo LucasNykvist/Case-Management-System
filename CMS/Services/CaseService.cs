@@ -1,22 +1,18 @@
 ﻿using CMS.Interfaces;
+using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace CMS.Services
 {
     internal class CaseService : ICaseService
     {
+
         public void AddCase()
         {
             Console.WriteLine("--- Add Case ---");
 
-            Console.WriteLine("Enter Client Information:");
-            Console.Write("First Name: ");
-            Console.ReadLine();
-            Console.Write("Last Name: ");
-            Console.ReadLine();
-            Console.Write("Email: ");
-            Console.ReadLine();
-            Console.Write("Phone Number: ");
-            Console.ReadLine();
+            ClientService clientService= new ClientService();
+            clientService.AddClient();
 
             Console.WriteLine("\nEnter Task Information: ");
             Console.Write("Task Name: ");
