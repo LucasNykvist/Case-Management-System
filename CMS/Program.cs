@@ -21,7 +21,7 @@ while (isRunning)
 
 
             case 2:
-
+                caseService.GetAllCases();
                 break;
 
 

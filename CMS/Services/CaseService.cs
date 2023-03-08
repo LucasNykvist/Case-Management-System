@@ -34,7 +34,8 @@ namespace CMS.Services
 
         public void GetAllCases()
         {
-
+            DisplayAllDataService displayAllData = new DisplayAllDataService();
+            displayAllData.ShowAllData();
         }
     }
 }
