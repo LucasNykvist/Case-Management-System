@@ -11,7 +11,7 @@ namespace CMS.Services
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }
-        public void AddClient()
+        public int AddClient()
         {
             Console.WriteLine("Enter Client Information:");
 
@@ -27,20 +27,24 @@ namespace CMS.Services
             Console.Write("Phone Number (eg: 7025541151): ");
             string Phone = Console.ReadLine();
 
+            int ClientID = 0;
+
             using (SqlConnection connection = GetSqlConnection())
             {
                 connection.Open();
-                string query = "INSERT INTO Clients (FirstName, LastName, Email, Phone) VALUES (@FirstName, @LastName, @Email, @Phone)";
+                string query = "INSERT INTO Clients (FirstName, LastName, Email, Phone) VALUES (@FirstName, @LastName, @Email, @Phone) SELECT SCOPE_IDENTITY();";
                 using (SqlCommand command = new SqlCommand(query, connection)) 
                 {
                     command.Parameters.AddWithValue("@FirstName", FirstName);
                     command.Parameters.AddWithValue("@LastName", LastName);
                     command.Parameters.AddWithValue("@Email", Email);
                     command.Parameters.AddWithValue("@Phone", Phone);
-                    command.ExecuteNonQuery();
-                    Console.WriteLine("Client Added");
+                    ClientID = Convert.ToInt32(command.ExecuteScalar());
+                    Console.WriteLine("\n----Client Added----");
                 }
             }
+
+            return ClientID;
         }
     }
 }
