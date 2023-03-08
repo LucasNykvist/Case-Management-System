@@ -26,7 +26,7 @@ while (isRunning)
 
 
             case 3:
-
+                caseService.SearchCase();
                 break;
 
 

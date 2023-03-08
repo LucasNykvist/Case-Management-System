@@ -3,19 +3,12 @@ using Microsoft.Data.SqlClient;
 using System.Data.SqlClient;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.Identity.Client;
 
 namespace CMS.Services
 {
     internal class CaseService : ICaseService
     {
-
-        static SqlConnection GetSqlConnection()
-        {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\lukep\Documents\Case Database.mdf"";Integrated Security=True;Connect Timeout=30";
-            SqlConnection connection = new SqlConnection(connectionString);
-            return connection;
-        }
-
         public void AddCase()
         {
             Console.WriteLine("--- Add Case ---");
@@ -30,12 +23,16 @@ namespace CMS.Services
             combinerService.CombineClientTask(ClientID, TaskID);
         }
 
-        public void GetAllCases()
+        public void SearchCase()
         {
+            Console.WriteLine("Enter Case ID");
+            Int32.TryParse(Console.ReadLine(), out int CaseID);
 
+            DisplayDataService displayDataService = new DisplayDataService();
+            displayDataService.DisplayData(CaseID);
         }
 
-        public void SearchCase()
+        public void GetAllCases()
         {
 
         }

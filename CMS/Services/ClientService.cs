@@ -16,16 +16,16 @@ namespace CMS.Services
             Console.WriteLine("Enter Client Information:");
 
             Console.Write("First Name: ");
-            string FirstName = Console.ReadLine();
+            string FirstName = Console.ReadLine() ?? "";
 
             Console.Write("Last Name: ");
-            string LastName = Console.ReadLine();
+            string LastName = Console.ReadLine() ?? "";
 
             Console.Write("Email: ");
-            string Email = Console.ReadLine();
+            string Email = Console.ReadLine() ?? "";
 
             Console.Write("Phone Number (eg: 7025541151): ");
-            string Phone = Console.ReadLine();
+            string Phone = Console.ReadLine() ?? "";
 
             int ClientID = 0;
 
