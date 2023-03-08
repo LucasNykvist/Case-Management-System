@@ -14,7 +14,7 @@ namespace CMS.Services
 
             Console.WriteLine("MENU 3: Specific Case / Status / Notes");
 
-            Console.WriteLine("MENU 4: CLOSE CASE MANAGEMENT SYSTEM");
+            Console.WriteLine("MENU 4: Exit Program");
         }
     }
 }

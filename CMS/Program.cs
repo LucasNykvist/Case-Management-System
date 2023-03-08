@@ -17,24 +17,30 @@ while (isRunning)
 
             case 1:
                 caseService.AddCase();
+                Console.ReadKey();
+                Console.Clear();
                 break;
 
 
             case 2:
                 caseService.GetAllCases();
+                Console.ReadKey();
+                Console.Clear();
                 break;
 
 
             case 3:
                 caseService.SearchCase();
+                Console.ReadKey();
+                Console.Clear();
                 break;
-
 
             case 4:
                 Console.WriteLine("Closing Program...");
                 System.Threading.Thread.Sleep(1000);
                 isRunning = false;
                 break;
+
 
             default:
                 Console.WriteLine("-------------- Invalid Menu Choice --------------");
