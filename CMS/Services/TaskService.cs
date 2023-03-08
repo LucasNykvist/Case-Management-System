@@ -6,7 +6,7 @@ namespace CMS.Services
 {
     internal class TaskService
     {
-        
+
         static SqlConnection GetSqlConnection()
         {
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\lukep\Documents\Case Database.mdf"";Integrated Security=True;Connect Timeout=30";
@@ -14,10 +14,10 @@ namespace CMS.Services
             return connection;
         }
 
-        public void AddTask(int ClientID)
+        public int AddTask(int ClientID)
         {
 
-            
+
 
             Console.WriteLine("\nEnter Task Information: ");
 
@@ -57,10 +57,12 @@ namespace CMS.Services
             DateTime DateOpened = DateTime.Now;
             string Status = "Pending";
 
+            int TaskID = 0;
+
             using (SqlConnection connection = GetSqlConnection())
             {
                 connection.Open();
-                string Query = "INSERT INTO Tasks (ClientID, TaskName, TaskDescription, DateOpened, Status) VALUES (@ClientID, @TaskName, @TaskDescription, @DateOpened, @Status)";
+                string Query = "INSERT INTO Tasks (ClientID, TaskName, TaskDescription, DateOpened, Status) VALUES (@ClientID, @TaskName, @TaskDescription, @DateOpened, @Status) SELECT SCOPE_IDENTITY();";
                 using (SqlCommand command = new SqlCommand(Query, connection))
                 {
                     command.Parameters.AddWithValue("@ClientID", ClientID);
@@ -68,8 +70,10 @@ namespace CMS.Services
                     command.Parameters.AddWithValue("@TaskDescription", TaskDescription);
                     command.Parameters.AddWithValue("@DateOpened", DateOpened);
                     command.Parameters.AddWithValue("@Status", Status);
-                    command.ExecuteNonQuery();
+                    TaskID = Convert.ToInt32(command.ExecuteScalar());
                 }
+
+                return TaskID;
             }
         }
     }

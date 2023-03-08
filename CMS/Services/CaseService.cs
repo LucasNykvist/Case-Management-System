@@ -24,9 +24,10 @@ namespace CMS.Services
             int ClientID = clientService.AddClient();
 
             TaskService taskService = new TaskService(); 
-            taskService.AddTask(ClientID);
+            int TaskID = taskService.AddTask(ClientID);
 
-            Console.WriteLine("\nCASE ADDED!\n");
+            CombinerService combinerService= new CombinerService();
+            combinerService.CombineClientTask(ClientID, TaskID);
         }
 
         public void GetAllCases()
