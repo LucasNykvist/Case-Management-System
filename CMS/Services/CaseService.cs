@@ -30,6 +30,51 @@ namespace CMS.Services
 
             DisplayDataService displayDataService = new DisplayDataService();
             displayDataService.DisplayData(CaseID);
+
+            Console.WriteLine("Change Status Of This Case? Y/N");
+
+            string menuChoice = Console.ReadLine().ToUpper();
+            switch (menuChoice)
+            {
+                case "Y":
+                    Console.WriteLine("Choose New Status");
+                    Console.WriteLine("1: Pending");
+                    Console.WriteLine("2: Ongoing");
+                    Console.WriteLine("3: Closed");
+                    var newStatus = "";
+
+                    if (Int32.TryParse(Console.ReadLine(), out int choice))
+                    {
+                        switch (choice)
+                        {
+                            case 1:
+                                newStatus = "Pending";
+                                break;
+
+                            case 2:
+                                newStatus = "Ongoing";
+                                break;
+
+                            case 3:
+                                newStatus = "Closed";
+                                break;
+
+                            default:
+                                Console.WriteLine("Error - Choose between 1,2 or 3");
+                                break;
+                        }
+                    }
+
+                    break;
+
+                case "N":
+
+                    break;
+
+                default: 
+                    Console.WriteLine("Invalid Menu Choice. Enter Y Or N");
+                    break;
+            }
         }
 
         public void GetAllCases()

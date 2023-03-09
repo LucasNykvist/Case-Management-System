@@ -1,44 +1,31 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CMS.DBModels;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Services
 {
     internal class DisplayAllDataService
     {
-
-        static SqlConnection GetSqlConnection()
-        {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\lukep\Documents\Case Database.mdf"";Integrated Security=True;Connect Timeout=30";
-            SqlConnection connection = new SqlConnection(connectionString);
-            return connection;
-        }
-
         public void ShowAllData()
         {
-
-            using (SqlConnection connection = GetSqlConnection())
+            using (var db = new CMSContext())
             {
-                string query = "SELECT * FROM Cases " +
-                               "INNER JOIN Clients ON Cases.ClientID = Clients.ClientID " +
-                               "INNER JOIN Tasks ON Cases.TaskID = Tasks.TaskID";
+                var cases = db.Cases
+                    .Include(c => c.Client)
+                    .Include(c => c.Task)
+                    .ToList();
 
-                SqlCommand command = new SqlCommand(query, connection);
-
-                connection.Open();
-
-                using (var reader = command.ExecuteReader())
+                foreach (var item in cases)
                 {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"CASE ID: {reader["CaseID"]}");
-                        Console.WriteLine($"Client Name: {reader["FirstName"]} {reader["LastName"]}");
-                        Console.WriteLine($"Client Email: {reader["Email"]}");
-                        Console.WriteLine($"Client Phone Number: {reader["Phone"]}");
-                        Console.WriteLine($"Task Name: {reader["TaskName"]}");
-                        Console.WriteLine($"Task Description: {reader["TaskDescription"]}");
-                        Console.WriteLine($"Task Date Opened: {reader["DateOpened"]}");
-                        Console.WriteLine($"Task Status: {reader["Status"]}");
-                        Console.WriteLine("");
-                    }
+                    Console.WriteLine($"CASE ID: {item.CaseID}");
+                    Console.WriteLine($"Client Name: {item.Client.FirstName} {item.Client.LastName}");
+                    Console.WriteLine($"Client Email: {item.Client.Email}");
+                    Console.WriteLine($"Client Phone Number: {item.Client.Phone}");
+                    Console.WriteLine($"Task Name: {item.Task.TaskName}");
+                    Console.WriteLine($"Task Description: {item.Task.TaskDescription}");
+                    Console.WriteLine($"Task Date Opened: {item.Task.DateOpened}");
+                    Console.WriteLine($"Task Status: {item.Task.Status}");
+                    Console.WriteLine("");
                 }
             }
         }

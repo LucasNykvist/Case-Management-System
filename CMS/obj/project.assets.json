@@ -2880,6 +2880,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.Data.SqlClient >= 5.1.0",
+      "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3"
     ]
@@ -2932,6 +2933,10 @@
           "Microsoft.Data.SqlClient": {
             "target": "Package",
             "version": "[5.1.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.3, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
