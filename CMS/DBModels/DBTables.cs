@@ -31,15 +31,24 @@ namespace CMS.DBModels
             public virtual ICollection<Case> Case { get; set; }
         }
 
-        public class Case
+        public class CaseNote
         {
+            public int CaseNoteID { get; set; }
             public int CaseID { get; set; }
+            public string Note { get; set; }
 
-            public int ClientID { get; set; }
-            public virtual Client Client { get; set; }
-
-            public int TaskID { get; set; }
-            public virtual Task Task { get; set; }
+            public virtual Case Case { get; set; }
         }
-    }
+
+        public class Case
+            {
+                public int CaseID { get; set; }
+
+                public int ClientID { get; set; }
+                public virtual Client Client { get; set; }
+
+                public int TaskID { get; set; }
+                public virtual Task Task { get; set; }
+            }
+}
 

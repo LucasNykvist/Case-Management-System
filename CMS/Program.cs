@@ -37,10 +37,11 @@ while (isRunning)
 
             case 4:
                 Console.WriteLine("Closing Program...");
+
+                //Enbart lagt till detta för att det ska "kännas" lite (=
                 System.Threading.Thread.Sleep(1000);
                 isRunning = false;
                 break;
-
 
             default:
                 Console.WriteLine("-------------- Invalid Menu Choice --------------");
