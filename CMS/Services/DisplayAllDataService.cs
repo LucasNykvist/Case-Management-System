@@ -26,6 +26,15 @@ namespace CMS.Services
                     Console.WriteLine($"Task Date Opened: {item.Task.DateOpened}");
                     Console.WriteLine($"Task Status: {item.Task.Status}");
                     Console.WriteLine("");
+
+                    var notes = db.CaseNotes.Where(cn => cn.CaseID == item.CaseID).ToList();
+                    Console.WriteLine("Notes:");
+                    foreach (var note in notes)
+                    {
+                        Console.WriteLine($"- {note.Note}");
+                    }
+
+                    Console.WriteLine("");
                 }
             }
         }
