@@ -88,20 +88,20 @@ namespace CMS.Services
                                 caseToUpdate.Task.Status = newStatus;
                                 context.SaveChanges();
 
-                                Console.WriteLine($"Case with ID {CaseID} has been updated with new status {newStatus}\n");
-                                Console.WriteLine("Press any key to continue...");
+                                Console.WriteLine($"Ärende Med ID {CaseID} Har Uppdaterats Med Ny Status: {newStatus}\n");
+                                Console.WriteLine("Tryck På Valfri Tangent För Att Fortsätta...");
                                 break;
 
                             case 2:
-                                Console.Write("Add Note: ");
+                                Console.Write("Ange Kommentar: ");
                                 var newNote = Console.ReadLine();
 
                                 var caseNote = new CaseNote { CaseID = CaseID, Note = newNote };
                                 context.CaseNotes.Add(caseNote);
                                 context.SaveChanges();
 
-                                Console.WriteLine($"\nA new note has been added to Case with ID {CaseID}\n");
-                                Console.WriteLine("Press any key to continue...");
+                                Console.WriteLine($"\nEn Ny Kommentar Har Lagts Till På Ärende Med ID: {CaseID}\n");
+                                Console.WriteLine("Tryck På Valfri Tangent För Att Fortsätta...");
                                 break;
 
                         }
@@ -113,8 +113,8 @@ namespace CMS.Services
                 }
                 else if (response.Equals("N", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine($"Status or Note of case with ID {CaseID} was not updated.\n");
-                    Console.WriteLine("Press any key to continue...");
+                    Console.WriteLine($"Status Eller Kommentar På Ärende Med ID: {CaseID} Ändrades Inte...\n");
+                    Console.WriteLine("Tryck På Valfri Tangent För Att Fortsätta...");
                 }
             }
         }
