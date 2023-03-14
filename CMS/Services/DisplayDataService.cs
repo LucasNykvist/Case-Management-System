@@ -20,20 +20,20 @@ namespace CMS.Services
 
                 if (caseToUpdate == null)
                 {
-                    Console.WriteLine($"No Data Was Found For Case with ID {CaseID}");
+                    Console.WriteLine($"Ingen Data Hittades För Ärende Med ID: {CaseID}");
                     return;
                 }
 
-                Console.WriteLine($"\nCASE ID: {caseToUpdate.CaseID}");
-                Console.WriteLine($"Client Name: {caseToUpdate.Client.FirstName} {caseToUpdate.Client.LastName}");
-                Console.WriteLine($"Client Email: {caseToUpdate.Client.Email}");
-                Console.WriteLine($"Client Phone Number: {caseToUpdate.Client.Phone}");
-                Console.WriteLine($"Task Name: {caseToUpdate.Task.TaskName}");
-                Console.WriteLine($"Task Description: {caseToUpdate.Task.TaskDescription}");
-                Console.WriteLine($"Task Date Opened: {caseToUpdate.Task.DateOpened}");
-                Console.WriteLine($"Task Status: {caseToUpdate.Task.Status}\n");
+                Console.WriteLine($"\nÄRENDE ID: {caseToUpdate.CaseID}");
+                Console.WriteLine($"KLIENT NAMN: {caseToUpdate.Client.FirstName} {caseToUpdate.Client.LastName}");
+                Console.WriteLine($"KLIENT EMAIL: {caseToUpdate.Client.Email}");
+                Console.WriteLine($"KLIENT TELEFONNUMMER: {caseToUpdate.Client.Phone}");
+                Console.WriteLine($"ÄRENDE NAMN: {caseToUpdate.Task.TaskName}");
+                Console.WriteLine($"ÄRENDE BESKRIVNING: {caseToUpdate.Task.TaskDescription}");
+                Console.WriteLine($"ÄRENDE ÖPPNADES: {caseToUpdate.Task.DateOpened}");
+                Console.WriteLine($"ÄRENDE STATUS: {caseToUpdate.Task.Status}\n");
 
-                Console.WriteLine($"Case Notes for Case with ID {CaseID}:");
+                Console.WriteLine($"KOMMENTARER FÖR ÄRENDE MED ID: {CaseID}:");
                 foreach (var note in caseNotes)
                 {
                     Console.WriteLine($"{note.Note}");
@@ -41,26 +41,26 @@ namespace CMS.Services
 
                 if (caseNotes.Count == 0)
                 {
-                    Console.WriteLine($"No Case Notes Found for Case with ID {CaseID}");
+                    Console.WriteLine($"Inga Kommentarer Hittades För Ärende Med ID {CaseID}");
                 }
 
-                Console.WriteLine("\nDo you want to update the status / add a note for this case? (Y/N): ");
+                Console.WriteLine("\nVill Du Uppdatera Status / Lägga Till Kommentar För Detta Ärende? (Y/N): ");
                 var response = Console.ReadLine();
 
                 if (response.Equals("Y", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("Press 1 to change status");
-                    Console.WriteLine("Press 2 to add a comment");
+                    Console.WriteLine("Ange 1 För Att Ändra Status");
+                    Console.WriteLine("Ange 2 För Att Lägga Till Kommentar");
 
                     if (Int32.TryParse(Console.ReadLine(), out int statusOrComment))
                     {
                         switch (statusOrComment)
                         {
                             case 1:
-                                Console.WriteLine("Choose New Status");
-                                Console.WriteLine("1: Pending");
-                                Console.WriteLine("2: Ongoing");
-                                Console.WriteLine("3: Closed");
+                                Console.WriteLine("Välj Ny Status");
+                                Console.WriteLine("1: Ej Påbörjat");
+                                Console.WriteLine("2: Pågående");
+                                Console.WriteLine("3: Avslutad");
                                 var newStatus = "";
 
                                 if (Int32.TryParse(Console.ReadLine(), out int choice))
@@ -68,19 +68,19 @@ namespace CMS.Services
                                     switch (choice)
                                     {
                                         case 1:
-                                            newStatus = "Pending";
+                                            newStatus = "Ej Påbörjat";
                                             break;
 
                                         case 2:
-                                            newStatus = "Ongoing";
+                                            newStatus = "Pågående";
                                             break;
 
                                         case 3:
-                                            newStatus = "Closed";
+                                            newStatus = "Avslutad";
                                             break;
 
                                         default:
-                                            Console.WriteLine("Error - Choose between 1,2 or 3");
+                                            Console.WriteLine("Error - Välj 1,2 Eller 3");
                                             break;
                                     }
                                 }

@@ -18,7 +18,7 @@ namespace CMS.Services
                 context.Cases.Add(newCase);
                 context.SaveChanges();
 
-                Console.WriteLine("Case Has Been Added...");
+                Console.WriteLine("\nÄrende Tillagt...");
             }
         }
     }

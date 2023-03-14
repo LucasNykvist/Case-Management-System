@@ -7,12 +7,12 @@ namespace CMS.Services
     {
         public int AddTask(int clientID)
         {
-            Console.WriteLine("\nEnter Task Information: ");
+            Console.WriteLine("\nAnge Ärende Information: ");
 
-            Console.WriteLine("Task Type - Choose between 1-3 ");
-            Console.WriteLine("1 - Software Issues");
-            Console.WriteLine("2 - Hardware Issues");
-            Console.WriteLine("3 - Other");
+            Console.WriteLine("Ärende Typ - Välj 1-3 ");
+            Console.WriteLine("1 - Mjukvaru Problem");
+            Console.WriteLine("2 - Hårdvara Problem");
+            Console.WriteLine("3 - Annat");
             string taskName = "";
 
             if (Int32.TryParse(Console.ReadLine(), out int menuChoice))
@@ -20,30 +20,30 @@ namespace CMS.Services
                 switch (menuChoice)
                 {
                     case 1:
-                        taskName = "Software Issues";
+                        taskName = "Mjukvaru Problem";
                         break;
 
                     case 2:
-                        taskName = "Hardware Issues";
+                        taskName = "Hårdvara Problem";
                         break;
 
                     case 3:
-                        taskName = "Other";
+                        taskName = "Annat";
                         break;
 
                     default:
-                        Console.WriteLine("Error");
+                        Console.WriteLine("Error - Välj Mellan 1 Och 3");
                         break;
                 }
             }
 
-            Console.WriteLine($"Task Type Is: {taskName}");
+            Console.WriteLine($"Ärende Typ Är: {taskName}");
 
-            Console.Write("Task Description: ");
+            Console.Write("Ärende Beskrivning: ");
             string taskDescription = Console.ReadLine();
 
             DateTime dateOpened = DateTime.Now;
-            string status = "Pending";
+            string status = "Ej Påbörjad";
 
 
             using (var context = new CMSContext())
@@ -60,7 +60,7 @@ namespace CMS.Services
                 context.Tasks.Add(task);
                 context.SaveChanges();
 
-                Console.WriteLine("\n----Task Added----");
+                Console.WriteLine("\n----Ärende Tillagt----");
 
                 return task.TaskID;
             }

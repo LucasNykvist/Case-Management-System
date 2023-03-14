@@ -11,7 +11,7 @@ namespace CMS.Services
     {
         public void AddCase()
         {
-            Console.WriteLine("--- Add Case ---");
+            Console.WriteLine("--- Skapa Ärende ---");
 
             ClientService clientService = new ClientService();
             int ClientID = clientService.AddClient();
@@ -25,7 +25,7 @@ namespace CMS.Services
 
         public void SearchCase()
         {
-            Console.WriteLine("Enter Case ID");
+            Console.WriteLine("Skriv Ärende ID");
             Int32.TryParse(Console.ReadLine(), out int CaseID);
 
             DisplayDataService displayDataService = new DisplayDataService();

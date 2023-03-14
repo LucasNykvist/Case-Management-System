@@ -6,15 +6,15 @@ namespace CMS.Services
     {
         public void ShowMenu()
         {
-            Console.WriteLine("---CASE MANAGEMENT SYSTEM---");
+            Console.WriteLine("---Ärendehanteringssystem---");
 
-            Console.WriteLine("MENU 1: Create Case");
+            Console.WriteLine("MENY 1: Skapa Ärende");
 
-            Console.WriteLine("MENU 2: Show All Cases");
+            Console.WriteLine("MENY 2: Visa alla ärenden");
 
-            Console.WriteLine("MENU 3: Specific Case / Status / Notes");
+            Console.WriteLine("MENY 3: Specifikt Ärende / Status / Kommentarer");
 
-            Console.WriteLine("MENU 4: Exit Program");
+            Console.WriteLine("MENY 4: Avsluta Program");
         }
     }
 }

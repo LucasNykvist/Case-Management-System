@@ -36,7 +36,7 @@ while (isRunning)
                 break;
 
             case 4:
-                Console.WriteLine("Closing Program...");
+                Console.WriteLine("Stänger Program...");
 
                 //Enbart lagt till detta för att det ska "kännas" lite (=
                 System.Threading.Thread.Sleep(1000);
@@ -44,7 +44,7 @@ while (isRunning)
                 break;
 
             default:
-                Console.WriteLine("-------------- Invalid Menu Choice --------------");
+                Console.WriteLine("-------------- Ogiltigt Menyval --------------");
                 break;
         }
     }
