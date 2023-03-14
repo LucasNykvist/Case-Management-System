@@ -17,18 +17,18 @@ namespace CMS.Services
 
                 foreach (var item in cases)
                 {
-                    Console.WriteLine($"CASE ID: {item.CaseID}");
-                    Console.WriteLine($"Client Name: {item.Client.FirstName} {item.Client.LastName}");
-                    Console.WriteLine($"Client Email: {item.Client.Email}");
-                    Console.WriteLine($"Client Phone Number: {item.Client.Phone}");
-                    Console.WriteLine($"Task Name: {item.Task.TaskName}");
-                    Console.WriteLine($"Task Description: {item.Task.TaskDescription}");
-                    Console.WriteLine($"Task Date Opened: {item.Task.DateOpened}");
-                    Console.WriteLine($"Task Status: {item.Task.Status}");
+                    Console.WriteLine($"ÄRENDE ID: {item.CaseID}");
+                    Console.WriteLine($"KLIENT NAMN: {item.Client.FirstName} {item.Client.LastName}");
+                    Console.WriteLine($"KLIENT EMAIL: {item.Client.Email}");
+                    Console.WriteLine($"KLIENT TELEFONNUMMER: {item.Client.Phone}");
+                    Console.WriteLine($"ÄRENDE NAMN: {item.Task.TaskName}");
+                    Console.WriteLine($"ÄRENDE BESKRIVNING: {item.Task.TaskDescription}");
+                    Console.WriteLine($"ÄRENDE ÖPPNADES: {item.Task.DateOpened}");
+                    Console.WriteLine($"ÄRENDE STATUS: {item.Task.Status}");
                     Console.WriteLine("");
 
                     var notes = db.CaseNotes.Where(cn => cn.CaseID == item.CaseID).ToList();
-                    Console.WriteLine("Notes:");
+                    Console.WriteLine("Kommentarer:");
                     foreach (var note in notes)
                     {
                         Console.WriteLine($"- {note.Note}");
